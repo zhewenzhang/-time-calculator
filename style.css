@@ -12,13 +12,19 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   background-color: var(--surface-color);
   padding: 24px;
+  padding-bottom: 72px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -79,4 +85,71 @@ th {
 
 tr:hover {
   background-color: var(--background-color);
+}
+
+/* 底部导航栏样式 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: white;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.bottom-nav fluent-tabs::part(tablist) {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  justify-content: space-around;
+}
+
+.bottom-nav fluent-tab {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.bottom-nav fluent-tab::part(root) {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 120px;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.bottom-nav fluent-tab:last-child::part(root) {
+  border-right: none;
+}
+
+.bottom-nav fluent-tab:hover {
+  background: var(--background-color);
+}
+
+.tab-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    padding: 16px;
+  }
 }
